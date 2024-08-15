@@ -1,9 +1,12 @@
 import { Button } from "@nextui-org/react";
+import * as actions from "@/actions";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
-      <Button>Vote</Button>
+      <form action={actions.signIn}>
+        <Button type="submit">Click</Button>
+      </form>
     </main>
   );
 }
