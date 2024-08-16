@@ -12,11 +12,7 @@ export default async function Home() {
       <form action={actions.signOut}>
         <Button type="submit">SignOut</Button>
       </form>
-      {session?.user ? (
-        <div>{JSON.stringify(session.user)}</div>
-      ) : (
-        <div>SignOUt</div>
-      )}
+      {session?.user ? <div>SignIn</div> : <div>SignOut</div>}
     </main>
   );
 }
