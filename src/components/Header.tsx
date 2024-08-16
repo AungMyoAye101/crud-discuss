@@ -35,14 +35,14 @@ const Header = async () => {
     );
   }
   return (
-    <Navbar>
+    <Navbar shouldHideOnScroll>
       <NavbarBrand>
         <Link href={"/"}>Discuss</Link>
       </NavbarBrand>
 
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input />
+          <Input placeholder="Type to search..." size="sm" />
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">{authContent}</NavbarContent>
