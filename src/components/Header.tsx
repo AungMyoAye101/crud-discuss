@@ -11,6 +11,8 @@ import {
   divider,
 } from "@nextui-org/react";
 import { auth } from "@/auth";
+import { signIn } from "@/actions/signIn";
+import { signOut } from "@/actions/signOut";
 
 const Header = async () => {
   const session = await auth();
@@ -22,14 +24,18 @@ const Header = async () => {
     authContent = (
       <>
         <NavbarItem>
-          <Button type="submit" color="primary">
-            Sign In
-          </Button>
+          <form action={signIn}>
+            <Button type="submit" color="primary">
+              Sign In
+            </Button>
+          </form>
         </NavbarItem>
         <NavbarItem>
-          <Button type="submit" color="secondary" variant="bordered">
-            Sign Out
-          </Button>
+          <form action={signOut}>
+            <Button type="submit" color="secondary" variant="bordered">
+              Sign Out
+            </Button>
+          </form>
         </NavbarItem>
       </>
     );
