@@ -23,7 +23,9 @@ import { useSession } from "next-auth/react";
 const HeaderAuth = () => {
   const session = useSession();
   let authContent: React.ReactNode;
-  if (session.data?.user) {
+  if (session.status === "loading") {
+    authContent = null;
+  } else if (session.data?.user) {
     authContent = (
       <Popover>
         <PopoverTrigger>

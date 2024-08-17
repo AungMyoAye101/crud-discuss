@@ -21,7 +21,9 @@ const Header = () => {
   return (
     <Navbar shouldHideOnScroll>
       <NavbarBrand>
-        <Link href={"/"}>Discuss</Link>
+        <Link href={"/"} className="font-bold font-3xl">
+          Discuss
+        </Link>
       </NavbarBrand>
 
       <NavbarContent justify="center">
