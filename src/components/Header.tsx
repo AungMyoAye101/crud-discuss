@@ -15,48 +15,9 @@ import {
 import { auth } from "@/auth";
 import { signIn } from "@/actions/signIn";
 import { signOut } from "@/actions/signOut";
+import HeaderAuth from "./Header-auth";
 
-const Header = async () => {
-  const session = await auth();
-  let authContent: React.ReactNode;
-
-  if (session?.user) {
-    authContent = (
-      <Popover>
-        <PopoverTrigger>
-          <Avatar src={session.user.image || ""} className="cursor-pointer" />
-        </PopoverTrigger>
-        <PopoverContent>
-          <div className="p-2">
-            <form action={signOut}>
-              <Button type="submit" color="secondary" variant="bordered">
-                Sign Out
-              </Button>
-            </form>
-          </div>
-        </PopoverContent>
-      </Popover>
-    );
-  } else {
-    authContent = (
-      <>
-        <NavbarItem>
-          <form action={signIn}>
-            <Button type="submit" color="primary">
-              Sign In
-            </Button>
-          </form>
-        </NavbarItem>
-        <NavbarItem>
-          <form action={signOut}>
-            <Button type="submit" color="secondary" variant="bordered">
-              Sign Out
-            </Button>
-          </form>
-        </NavbarItem>
-      </>
-    );
-  }
+const Header = () => {
   return (
     <Navbar shouldHideOnScroll>
       <NavbarBrand>
@@ -68,7 +29,9 @@ const Header = async () => {
           <Input placeholder="Type to search..." size="sm" />
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end">{authContent}</NavbarContent>
+      <NavbarContent justify="end">
+        <HeaderAuth />
+      </NavbarContent>
     </Navbar>
   );
 };
