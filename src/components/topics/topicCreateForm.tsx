@@ -13,7 +13,9 @@ import { createTopic } from "@/actions/create-topic";
 import { useFormState } from "react-dom";
 
 const TopicCreateForm = () => {
-  const [formState, action] = useFormState(createTopic, 5);
+  const [formState, action] = useFormState(createTopic, {
+    errors: {},
+  });
   return (
     <Popover>
       <PopoverTrigger>
