@@ -4,7 +4,7 @@ import { title } from "process";
 import { z } from "zod";
 
 const createTopicSchema = z.object({
-  name: z
+  title: z
     .string()
     .min(3)
     .regex(/[a-z-]/, {
