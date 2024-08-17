@@ -7,6 +7,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@nextui-org/react";
+import { createTopic } from "@/actions/create-topic";
 
 const TopicCreateForm = () => {
   return (
@@ -15,16 +16,22 @@ const TopicCreateForm = () => {
         <Button color="primary">Create a Topic</Button>
       </PopoverTrigger>
       <PopoverContent>
-        <form action="">
+        <form action={createTopic}>
           <div className="flex flex-col gap-4 p-4">
             <h3 className="text-lg font-bold">Create a Topic</h3>
-            <Input label="Title" labelPlacement="outside" placeholder="Title" />
+            <Input
+              name="title"
+              label="Title"
+              labelPlacement="outside"
+              placeholder="Title"
+            />
             <Textarea
+              name="description"
               label="Description"
               labelPlacement="outside"
               placeholder="Descride your topic"
             />
-            <Button color="primary" variant="bordered">
+            <Button type="submit" color="primary" variant="bordered">
               Create
             </Button>
           </div>
