@@ -12,13 +12,15 @@ const createTopicSchema = z.object({
     }),
   description: z.string().min(10),
 });
-export const createTopic = async (formData: FormData) => {
+export const createTopic = async (formStae: number, formData: FormData) => {
   const result = createTopicSchema.safeParse({
     title: formData.get("title"),
     description: formData.get("description"),
   });
 
   if (!result.success) {
-    console.log(result.error);
+    console.log(result.error.flatten().fieldErrors);
   }
+
+  return 5;
 };
