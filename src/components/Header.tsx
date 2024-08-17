@@ -8,7 +8,9 @@ import {
   Input,
   Button,
   Avatar,
-  divider,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
 } from "@nextui-org/react";
 import { auth } from "@/auth";
 import { signIn } from "@/actions/signIn";
@@ -19,7 +21,22 @@ const Header = async () => {
   let authContent: React.ReactNode;
 
   if (session?.user) {
-    authContent = <Avatar src={session.user.image || ""} />;
+    authContent = (
+      <Popover>
+        <PopoverTrigger>
+          <Avatar src={session.user.image || ""} className="cursor-pointer" />
+        </PopoverTrigger>
+        <PopoverContent>
+          <div className="p-2">
+            <form action={signOut}>
+              <Button type="submit" color="secondary" variant="bordered">
+                Sign Out
+              </Button>
+            </form>
+          </div>
+        </PopoverContent>
+      </Popover>
+    );
   } else {
     authContent = (
       <>
