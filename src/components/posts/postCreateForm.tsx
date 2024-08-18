@@ -12,7 +12,7 @@ import {
 import FormBtn from "../common/formBtn";
 import { createPost } from "@/actions/create-post";
 import { db } from "@/db";
-
+import type { Post } from "@prisma/client";
 interface PostCreateFormProps {
   slug: string;
 }
@@ -22,17 +22,6 @@ const PostCreateForm = async ({ slug }: PostCreateFormProps) => {
     errors: {},
   });
 
-  const topic = await db.topic.findFirst({
-    where: { slug },
-  });
-
-  if (!topic) {
-    return {
-      errors: {
-        _form: ["Cannot find Topic"],
-      },
-    };
-  }
   return (
     <Popover>
       <PopoverTrigger>
