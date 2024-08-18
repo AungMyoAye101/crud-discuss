@@ -31,7 +31,7 @@ const TopicCreateForm = () => {
               labelPlacement="outside"
               placeholder="Title"
               isInvalid={!!formState.errors.title}
-              errorMessage={formState.errors.title?.join(",")}
+              errorMessage={formState.errors.title?.join(", ")}
             />
             <Textarea
               name="description"
@@ -41,6 +41,10 @@ const TopicCreateForm = () => {
               isInvalid={!!formState.errors.description}
               errorMessage={formState.errors.description?.join(",")}
             />
+
+            {formState.errors._form ? (
+              <div>{formState.errors._form?.join(", ")}</div>
+            ) : null}
             <Button type="submit" color="primary" variant="bordered">
               Create
             </Button>
