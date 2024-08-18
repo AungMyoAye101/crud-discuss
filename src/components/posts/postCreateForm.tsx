@@ -10,7 +10,12 @@ import {
   PopoverContent,
 } from "@nextui-org/react";
 import FormBtn from "../common/formBtn";
+import { createPost } from "@/actions/create-post";
+
 const PostCreateForm = () => {
+  const [formState, action] = useFormState(createPost, {
+    errors: {},
+  });
   return (
     <Popover>
       <PopoverTrigger>
@@ -30,6 +35,9 @@ const PostCreateForm = () => {
             labelPlacement="outside"
             placeholder="Content"
           />
+          {formState.errors._form ? (
+            <div>{formState.errors._form.join()}</div>
+          ) : null}
           <FormBtn>Create</FormBtn>
         </form>
       </PopoverContent>
