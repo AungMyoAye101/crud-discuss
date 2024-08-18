@@ -11,15 +11,28 @@ import {
 } from "@nextui-org/react";
 import FormBtn from "../common/formBtn";
 import { createPost } from "@/actions/create-post";
+import { db } from "@/db";
 
 interface PostCreateFormProps {
   slug: string;
 }
 
-const PostCreateForm = ({ slug }: PostCreateFormProps) => {
-  const [formState, action] = useFormState(createPost, {
+const PostCreateForm = async ({ slug }: PostCreateFormProps) => {
+  const [formState, action] = useFormState(createPost.bind(null, slug), {
     errors: {},
   });
+
+  const topic = await db.topic.findFirst({
+    where: { slug },
+  });
+
+  if (!topic) {
+    return {
+      errors: {
+        _form: ["Cannot find Topic"],
+      },
+    };
+  }
   return (
     <Popover>
       <PopoverTrigger>

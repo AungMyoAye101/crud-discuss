@@ -20,6 +20,7 @@ interface CreatePostPrps {
   };
 }
 export const createPost = async (
+  slug: string,
   formState: CreatePostPrps,
   formData: FormData
 ): Promise<CreatePostPrps> => {
