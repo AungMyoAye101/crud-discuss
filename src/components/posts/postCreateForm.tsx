@@ -12,7 +12,11 @@ import {
 import FormBtn from "../common/formBtn";
 import { createPost } from "@/actions/create-post";
 
-const PostCreateForm = () => {
+interface PostCreateFormProps {
+  slug: string;
+}
+
+const PostCreateForm = ({ slug }: PostCreateFormProps) => {
   const [formState, action] = useFormState(createPost, {
     errors: {},
   });

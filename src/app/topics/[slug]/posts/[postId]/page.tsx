@@ -14,7 +14,7 @@ const PostShowPage = ({ params }: TopicShowProps) => {
       </div>
 
       <div>
-        <PostCreateForm />
+        <PostCreateForm slug={slug} />
       </div>
     </div>
   );
