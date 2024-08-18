@@ -1,4 +1,5 @@
 import TopicCreateForm from "@/components/topics/topicCreateForm";
+import TopicList from "@/components/topics/topicList";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       </div>
       <div>
         <TopicCreateForm />
+        <TopicList />
       </div>
     </main>
   );
