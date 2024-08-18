@@ -9,6 +9,7 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@nextui-org/react";
+import FormBtn from "../common/formBtn";
 const PostCreateForm = () => {
   return (
     <Popover>
@@ -29,9 +30,7 @@ const PostCreateForm = () => {
             labelPlacement="outside"
             placeholder="Content"
           />
-          <Button variant="solid" color="secondary">
-            Create
-          </Button>
+          <FormBtn>Create</FormBtn>
         </form>
       </PopoverContent>
     </Popover>
