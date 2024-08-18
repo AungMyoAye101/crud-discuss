@@ -10,11 +10,18 @@ const TopicList = async () => {
   const renderedTopics = topics.map((topic) => (
     <div key={topic.id}>
       <Link href={paths.topic(topic.slug)}>
-        <Chip>{topic.slug}</Chip>
+        <Chip variant="solid" color="secondary">
+          {topic.slug}
+        </Chip>
       </Link>
     </div>
   ));
-  return <div>{renderedTopics}</div>;
+  return (
+    <section className="max-w-52 p-2 border border-gray-300 rounded shadow mt-4">
+      <h1 className="text-lg font-semibold font-serif mb-2">Topic List</h1>
+      <div className=" flex flex-wrap gap-2">{renderedTopics}</div>
+    </section>
+  );
 };
 
 export default TopicList;
