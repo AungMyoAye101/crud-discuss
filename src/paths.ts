@@ -12,3 +12,5 @@ const paths = {
     return `/topics/${topicSlung}/posts/${postId}`;
   },
 };
+
+export default paths;
