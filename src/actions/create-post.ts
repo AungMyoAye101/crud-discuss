@@ -5,7 +5,8 @@ import paths from "@/paths";
 import type { Post } from "@prisma/client";
 import { Session } from "inspector";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
+
 import { z } from "zod";
 
 const createPostSchema = z.object({
@@ -85,4 +86,7 @@ export const createPost = async (
   }
   revalidatePath(paths.topic(slug));
   redirect(paths.postShow(slug, post.id));
+  return {
+    errors: {},
+  };
 };
